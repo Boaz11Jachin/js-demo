@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+</head>
+<body>
+    <h2>자바스크립트 객체 만들기</h2>
+    <p>
+        객체를 만들때 { 속성이름 : 속성값 , 속성이름 : 속성값 } 이렇게 만드는게 일반적인데, 이걸 특정상황에서는 축약이 가능하다.
+    </p>
+    <p>
+        객체 속성의 값으로 변수를 사용하는 경우에는 값만 설정하면, 변수이름으로 속성이름이 설정된다.
+        ==>
+        변수를 이용해서 객체의 속성값을 설정하려고 할때, 변수명과 속성이름이 같다면 속성이름을 생략할수 있다.
+    </p>
+    <script>
+
+        function add(obj) {
+            return obj.one + obj.other;
+        }
+
+        let r = add({
+            one : 12,
+            other: 10
+        });
+        console.log(r);
+
+
+        let name ='윤형호';
+        let age = 19;
+
+        let obj = {
+            name : name, age : age
+        };
+        console.log(obj.name);
+        console.log(obj.age);
+        console.log(obj.address);
+        let obj2 =  { name, age };
+        console.log(obj2.name);
+        console.log(obj2.age);
+
+        console.log(obj2["name"]);
+        let key = 'age';
+        console.log(obj2[key]);
+
+
+
+
+    </script>
+</body>
+</html>

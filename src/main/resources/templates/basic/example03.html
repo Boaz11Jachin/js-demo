@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+</head>
+<body>
+<h2>자바스크립트의 제어문</h2>
+<p>
+    제어문은 조건에 따라 분기처리를 하거나 반복처리를 할때 사용한다. 자바스크립트도 이런 제어문이 존재하고, 문법도 자바와 비슷하다.
+    분기처리를 하고자할때는 if ~ else (if ~ else if ~ else if  else) / switch 사용하면 되고, 반복처리를 하고자할때는 for / while 을 사용하면 된다.
+</p>
+<h4 id="ex01">자바스크립트 if문</h4>
+<p>
+    쓰는 방법자체는 비슷한데, if의 조건이 true , false 만 돌아가는건 아니다.
+</p>
+<p>
+    실제 데이터가, true 로 인식되는지 false 로 인식되는 <b id="ex02">확인하는 방법</b>이 있다.
+</p>
+<h4 id="ex03">자바스크립트 for문</h4>
+<p>
+    자바스크립트 for 문도 비슷하다. 변수만 let 으로
+</p>
+<script>
+    document.getElementById("ex03").onclick = function () {
+       for(let i=1; i<=10; i++) {
+           console.log(" i = "  + i);
+       }
+    };
+
+
+    document.getElementById("ex02").onclick = function () {
+        console.log(!!true);
+        console.log(!!false);
+        console.log(!!-1);
+        console.log(!!undefined);
+        console.log(!!'');
+    };
+
+
+    document.getElementById("ex01").onclick = function () {
+        let name = window.prompt("당신의 이름은?");
+        // undefined, null 이면 false
+        // 숫자 0 이면 false, 문자 '' 여도  false 처리
+        if (name) {
+            window.alert(name + "님 반갑습니다.");
+        } else {
+            window.alert("이름을 알려줘야지 이친구야!");
+        }
+    };
+
+    /*
+    document.getElementById("ex01").onclick = function() {
+        let name = window.prompt("당신의 이름은?");
+        if(name ==null || name =='') {
+            window.alert("이름을 알려줘야지 이친구야!");
+        }else{
+            window.alert(name + "님 반갑습니다.");
+        }
+    };
+    */
+
+</script>
+</body>
+</html>

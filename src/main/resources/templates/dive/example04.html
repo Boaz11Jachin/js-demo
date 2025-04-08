@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+</head>
+<body>
+  <h2>자바스크립트에서 제공되는 함수들</h2>
+  <h3>Number</h3>
+  <ul>
+    <li>Number.isFinite() : 유한수</li>
+    <li>Number.isInteger() : 정수인지 아닌지</li>
+    <li style="color:hotpink; font-weight: bold">Number.isNaN() : </li>
+    <li>Number.parseFloat() </li>
+    <li style="color:hotpink; font-weight: bold">Number.parseInt()</li>
+  </ul>
+  <ul>
+    <li style="color:hotpink; font-weight: bold">Number.prototype.toFixed() : 소수점 이하 자리수 고정한 문자열이 만들어진다.</li>
+    <li>Number.prototype.toExponential()</li>
+    <li>Number.prototype.toPrecision()</li>
+    <li>Number.prototype.toString()</li>
+  </ul>
+  <script>
+    console.log(3, Number.isFinite(3));
+    console.log(3/0, Number.isFinite(3/0));
+    console.log(3, Number.isInteger(3));
+    console.log(3.14, Number.isInteger(3.14));
+    console.log( '1d' * 9 , Number.isNaN('1d' * 9));
+    console.log( "3.14", Number.parseFloat("3.14"));
+    console.log( "3", Number.parseInt("3"));
+    console.log("======================================");
+    console.log( Number.parseFloat("3"));
+    console.log( Number.parseInt("3.9414"));
+    console.log( Number.parseInt(4.9484));
+
+    let totalMinute = 179;
+    console.log(totalMinute/60 , totalMinute%60);
+    console.log( Number.parseInt(totalMinute/60) , totalMinute%60);
+
+    let d1 = 4324.8421;
+    let d2 = 421;
+
+    console.log(d1.toFixed(1));
+    console.log(d2.toFixed(1));
+
+    // console.log(d1.toExponential(3));
+    // console.log( 41.toString() );
+    console.log( 41 .toString() );
+    console.log( (41).toString() );
+    console.log( 41.543534 .toString() );
+
+
+  </script>
+</body>
+</html>

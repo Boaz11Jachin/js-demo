@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+</head>
+<body>
+    <h2>자바스크립트에서 제공되는 함수들</h2>
+    <ul>
+        <li>Math.abs() 절대값</li>
+        <li>Math.round() 반올림한 정수형 number</li>
+        <li>Math.ceil() 올림한 정수형 number</li>
+        <li>Math.floor() 내림한 정수형 number </li>
+        <li>Math.sqrt() 루트</li>
+        <li>Math.random() 루트</li>
+        <li>Math.max() , Math.min()</li>
+    </ul>
+    <script>
+        let totalMinute = 432;
+        console.log(totalMinute/60);
+        console.log(Math.round(totalMinute/60));
+        console.log(Math.ceil(totalMinute/60));
+        console.log(Math.floor(totalMinute/60));
+        console.log(Math.random());
+        let r = Math.max(4,1543,5,23,543,24532,1,542,5432,54,54,32);
+        console.log(r);
+        let arr = [4,453,105,52,105463,6542,211,2];
+        // let t1 = Math.max(arr);
+        // 배열은 ... 을 할수있는데 전개 연산자
+        let t1 = Math.max(...arr);
+        let t2 = Math.min(...arr);
+        console.log(t1 , t2);
+        console.log(...arr);
+
+        let sample1 = ['루피','조로','나미'];
+        let sample2 = ['흰수염','마르코','에이스'];
+
+        let sample3 = [...sample1, ...sample2];
+        console.log(sample3);
+
+    </script>
+</body>
+</html>

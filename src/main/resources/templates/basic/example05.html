@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 함수</title>
+</head>
+<body>
+  <h2>자바스크립트의 함수</h2>
+  <p>
+    자바스크립트에서 함수는 하나의 데이터 유형으로 취급된다.
+  </p>
+  <script>
+    function add(a, b) {
+      return a + b;
+    }
+
+    let subtract = function(a, b) {
+      return a - b;
+    };
+
+    console.log(add(1, 4));
+    console.log(subtract(11, 4));
+
+    add = function(a, b) {
+      return a > b ? a : b;
+    };
+    subtract = function( a, b) {
+      return a * b;
+    };
+
+    console.log(add(1, 4));
+    console.log(subtract(11, 4));
+
+
+  </script>
+</body>
+</html>

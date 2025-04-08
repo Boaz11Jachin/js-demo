@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+</head>
+<body>
+    <h2>자바스크립트의 함수</h2>
+    <p>
+        자바스크립트도 함수라는 정의하고 활용할 수 있다.
+        자바스크립트의 함수는 지금까지 해봤던 자바의 함수와 설계방법이나 동작이 좀 다르다.
+    </p>
+    <ul>
+        <li>함수 정의할때 리턴타입이 필요없다.</li>
+        <li>함수 정의할때 매개타입도 없다.</li>
+        <li>리턴값이 없는 함수를 호출한후 결과를 받으면 undefined </li>
+        <li>매개변수형태에 맞춰서 호출할 필요는 없다.</li>
+        <li>함수도 하나의 유형(타입)으로 처리를 하고 있다.</li>
+    </ul>
+    <script>
+        function add(a, b) {
+            console.log("add funtions's a param value ", a);
+            console.log("add funtions's b param value ", b);
+
+            return (a??0) + (b??0);
+        }
+
+        let r = add(3, 5);
+        console.log("r", r);
+
+        let r2 =add(1);
+        console.log(r2);
+
+        let r3 = add(1,43,45,5,56,6,6,6,23,21,3,13);
+        console.log('r3' , r3);
+
+        console.log(add);
+        console.log(typeof add);
+
+        r3 = add;   // 어떤변수에 함수를 넘겨주는것도 가능하고.
+        add = 4;    // 함수를 가지고있던 변수에 다른 걸 설정하는것도 가능.
+        console.log(add);
+        // add(2); // error 가 발생함. function이 아니라서 호출이 불가능
+        r3(4, 2);
+
+    </script>
+</body>
+</html>
