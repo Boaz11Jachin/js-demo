@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트 이벤트</title>
+</head>
+<body id="wrap" style="color:red">
+  <input type="text" name="chk" placeholder="아이디입력..."/>
+  <h1>DOM?(Document Object Model)</h1>
+  <div>
+    <p>
+      서버측에서 전송하는 HTML을 브라우저가 받게 되면, 브라우저의 렌더링 엔진은 HTML을 문서를 분석하여 DOM 이라는걸 생성한다.
+      DOM을 HTML 구조나 정보를 확인할 수도 있고, 변경할 수 있다.
+    </p>
+    <p>
+      자바스크립트는 이 DOM 객체를 제어할 수 있다. DOM을 제어할때 사용하는게 document 라는 객체
+    </p>
+  </div>
+  <script>
+    console.log(document.title);
+    document.title = 'javascript event';
+    console.log(document.body, typeof document.body);
+    //document.body.innerHTML = '??';
+    console.log(document.body.id);
+    document.body.title='role';
+    console.log(document.body.style);
+    document.body.style.color='blue';
+
+    console.log(document.body.childElementCount);
+    console.log(document.body.firstElementChild);
+    console.log(document.body.firstElementChild.type);
+    document.body.firstElementChild.type='password';
+    document.body.firstElementChild.placeholder='비밀번호';
+
+  </script>
+</body>
+</html>

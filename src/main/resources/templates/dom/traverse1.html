@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+</head>
+<body>
+
+<h1 >DOM Traverse(돔탐색)</h1>
+<p>
+    DOM을 탐색하면 특정 요소를 기준으로 부모, 자식, 형제 전부 접근할수 있다.
+</p>
+<ul style="display: none">
+    <li><b>parentElement, parentNode</b> : <i>부모</i></li>
+    <li>children, childNodes: 자식(배열비슷한애로 나옴)</li>
+    <li>firstElementChild, firstChild: 첫째자식요소</li>
+    <li>lastElementChild, lastChild,: 막내자식요소</li>
+    <li>previousElementSibling, previousSibling : 형</li>
+    <li>nextElementSibling, nextSibling : 동생</li>
+</ul>
+<script>
+    document.body.firstElementChild.onclick = function( ) {
+        console.log(this.nextElementSibling.style.display);
+        if(this.nextElementSibling.nextElementSibling.style.display=='') {
+            this.nextElementSibling.nextElementSibling.style.display = 'none';
+        }else {
+            this.nextElementSibling.nextElementSibling.style.display = '';
+        }
+
+    };
+
+
+
+
+
+    console.log(document.body.firstElementChild, document.body.firstChild);
+    console.log(document.body.lastChild);
+    console.log(document.body.lastChild.parentElement);
+    console.log(document.body.firstElementChild.nextElementSibling);
+    const elm = document.body.firstElementChild;
+
+    console.log(elm.nextElementSibling.nextElementSibling.firstElementChild.childElementCount);
+
+
+    console.log(document.body.parentElement, document.body.parentNode)
+    let c1 = document.body.children;
+    let c2 = document.body.childNodes;
+    console.log(c1.length, c2.length);
+    console.log(c1[0], c2[0]);
+</script>
+
+</body>
+</html>

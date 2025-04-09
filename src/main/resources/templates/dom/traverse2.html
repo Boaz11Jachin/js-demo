@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+    <style>
+        .active {
+            background-color: lavender;
+        }
+    </style>
+</head>
+<body>
+<h1 id="subject">DOM탐색</h1>
+<p>
+    특정 DOM 요소에 접근하기 위해서 반드시 처음부터 탐색을 할 필요는 없다. 바로 접근할 수 있는 방법도 존재한다.
+</p>
+<div style="width:95%; margin:auto;">
+    <textarea id="txt" style="width: 100%; height: 150px; resize: none"></textarea>
+    <p style="text-align: right">
+       <span id="txtLen">0</span> / 100
+    </p>
+</div>
+<div>
+    <p style="border-bottom: 1px solid rgba(0,0,0,0.4); padding : 5px;" >
+        <input type="checkbox" id="flag" /> 제목
+    </p>
+    <p style="border-bottom: 1px solid rgba(0,0,0,0.1); padding : 5px;">
+        <input type="checkbox" class="item"/> <span>혹시 제가 실수를 했다면 알려주세요.</span>
+    </p>
+    <p style="border-bottom: 1px solid rgba(0,0,0,0.1); padding : 5px;">
+        <input type="checkbox" class="item"/> <span>어제 이후로 잘 연락이 안되네요</span>
+    </p>
+    <p style="border-bottom: 1px solid rgba(0,0,0,0.1); padding : 5px;">
+        <input type="checkbox" class="item"/> <span>오늘도 유쾌한 만남이었습니다 ^^</span>
+    </p>
+    <p style="border-bottom: 1px solid rgba(0,0,0,0.1); padding : 5px;">
+        <input type="checkbox" class="item"/> <span>혹시 무슨일이 있으신가요?</span>
+    </p>
+    <p style=" padding : 5px;">
+        <input type="checkbox" class="item"/> <span>만나서 반가웠습니다.</span>
+    </p>
+</div>
+<script>
+   // document.getElementById("flag").checked = false;
+   // console.log(document.getElementById("flag").disabled);
+   // document.getElementById("flag").disabled = false;
+    const $items = Array.from(document.getElementsByClassName("item"));
+    const $flag = document.getElementById("flag");
+
+    $flag.onchange = function() {
+        $items.forEach(function(one) {
+            one.checked= $flag.checked;
+            if(one.checked){
+                one.parentNode.className = 'active';
+            }else {
+                one.parentNode.className = '';
+            }
+        });
+    }
+   // every, some
+   $items.forEach(function(one) {
+       one.onchange = function() {
+           if(this.checked) {
+               $flag.checked = $items.every(function(one){
+                   return one.checked;
+               });
+               this.parentNode.className = 'active';
+           } else {
+               $flag.checked = false;
+               this.parentNode.className = '';
+           }
+       };
+   });
+
+    /*
+    $items.forEach(function(one) {
+        one.onchange = function() {
+            if(this.checked) {
+                let cnt = $items.filter(function(one){
+                    return one.checked === false ? true : false;
+                }).length;
+                if(cnt ===0) {
+                    $flag.checked= true;
+                }
+            } else {
+                $flag.checked = false;
+            }
+        };
+    });
+    */
+   /*
+   for(let one of document.getElementsByClassName("item")) {
+       one.onchange= function() {
+           if(!this.checked) {
+               document.getElementById("flag").checked= false;
+           }else {
+               // 전체 item이 켜져 있는지 꺼져 있는지 확인하려면..?
+
+           }
+
+       };
+   }
+    */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    document.getElementById("subject").innerHTML = "돔 TRAVERSE";
+
+    console.log(document.body.children[2].firstElementChild);
+    console.log(document.getElementById('txt'));
+    console.log(document.getElementById("txt").parentElement.style.margin);
+
+    const keyUpHandle = function () {
+        console.log(this.value, typeof this.value);
+    };
+
+    document.getElementById("txt").onkeyup = function () {
+        // console.log(this.value, typeof this.value, this.value.length);
+        // this.nextElementSibling.innerHTML = this.value.length +" / 100";
+        if(this.value.length>100) {
+            window.alert("최대 100 글자만 입력가능합니다.");
+            this.value = this.value.substring(0, 100);
+        }
+        document.getElementById("txtLen").innerHTML = this.value.length;
+    };
+
+
+</script>
+</body>
+</html>

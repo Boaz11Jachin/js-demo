@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+</head>
+<body>
+  <h1>자바스크립트에서 제공되는 함수들</h1>
+  <p>
+    이번에 살펴볼 함수들은 string이 가지고 있는 속성 및 함수들이다.
+  </p>
+  <ul>
+    <li>String.prototype.length : 문자개수(길이) </li>
+    <li>String.prototype.at(), charAt() : 특정위치의 문자 </li>
+    <li>String.prototype.indexOf( ::string) : 위치찾아주는</li>
+    <li>String.prototype.includes (:: string) : 특정 문자열 있는지</li>
+    <li>String.prototype.split() : 문자열을 특정구분자로 분해</li>
+    <li>String.prototype.repeat() : 문자열을 특정구분자로 분해</li>
+    <li>String.prototype.substring(number, number?) : 문자열을 일정부분 잘라내기</li>
+  </ul>
+  <script>
+    let s1 ='java';
+    let s2 ='자바스크립트는 자바가 아니다.';
+    console.log(s1.length, s2.length);
+    console.log(s1[0], s1.at(0), s1.charAt(0) ); //  string을 배열처럼 접근하게 특정위치의 string을 확인할수 있다.
+
+    console.log(s2.indexOf('자바') ); //  특정string의 위치를 찾아주는 (시작위치), 없으면 -1
+    console.log(s2.includes('파이썬')); //
+    let result ='루피,조로,나미'.split(',');
+    console.log(result, result[0]);
+    console.log('*'.repeat(7));
+
+    let message = '오늘 저녁에 안바쁘면 볼래?7 ok?';
+    let submessage = message.substring(0, 10)+".".repeat(4);
+    console.log(submessage);
+    let totalByte = 0;
+    for(let i=0; i<message.length; i++) {
+      console.log(message.charAt(i),  message.charCodeAt(i) );
+      totalByte += message.charCodeAt(i) <= 255 ? 1 : 2;
+    }
+
+    console.log(totalByte);
+
+  </script>
+</body>
+</html>

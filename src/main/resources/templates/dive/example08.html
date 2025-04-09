@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<h1>자바스크립트에서 사용하는 함수들</h1>
+<p>
+    자바스크립트에서 배열은 사용빈도가 높은 객체이다. 자바스크립트 배열객체는 배열을 다루기 위한 유용한 속성과 함수들이 제공된다.
+</p>
+<ul>
+    <li>Array.prototype.push() : 마지막요소로 추가 (List, add 랑 비슷)</li>
+    <li>Array.prototype.pop() : 마지막요소 제거 (List, removeLast 랑 비슷)</li>
+    <li>Array.prototype.unshift() : 맨 처음요소에 추가 (List, addFirst 랑 비슷)</li>
+    <li>Array.prototype.shift() : 맨 처음요소 제거 (List, removeFirst 랑 비슷)</li>
+    <li>Array.prototype.splice() : 배열요소 변경 (몇번째위치부터 몇개 제거하고 머로 바꿀껀가)</li>
+    <li>Array.prototype.join() : 배열요소 변경 (몇번째위치부터 몇개 제거하고 머로 바꿀껀가)</li>
+</ul>
+
+<script>
+    const names =['루피', '조로', '샹디'];
+    const r =names.join("&");
+    console.log(r);
+    names.reverse();
+    console.log(names);
+
+    const arr = [1];
+    arr.push(4, 4, 5, 1);
+    console.log(arr);
+    arr[arr.length] = 45;
+    console.log(arr);
+    arr.pop();
+    console.log(arr);
+    arr.push(...[1,42,4]);
+    console.log(arr);
+    arr.unshift(999);
+    console.log(arr);
+    arr.shift();
+    console.log(arr);
+    arr.splice(1, 1, 457, 32, 11);  // 1번 인덱스 하나를 제거하고 그 위치에 뒤에 데이터를 추가하겠다.
+    console.log(arr);
+    arr.splice(3, 1);   // 3번 인덱스에서부터 하나를 제거하고, 아무것도 안넣겠다.
+    console.log(arr);
+
+    // const 로 변수를 만들면 값이 변경불가능하다그랬는데, 먼가 바뀌고 잇다.. 왜 가능하지..? 배열자체는 안바뀌고 잇는거다.
+
+</script>
+</body>
+</html>
