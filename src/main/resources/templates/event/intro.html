@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+</head>
+<body>
+<h1>자바스크립트로 이벤트 처리하기</h1>
+<p>
+    script로 차후에 이벤트발생할때 해야될 함수를 지정을 안하고도, 이벤트를 처리할수 잇는데,
+    태그를 만들때 on계열의 속성들이 있는데 (onclick, onchange, ondblclick) 이 안에 자바스크립트 코드를 짜면 된다.
+</p>
+<p>
+    기본적으로 태그안에서 on계열의 속성에 작성하는 내용은
+    <code style="display: block; white-space: pre">
+    function(event) {
+        // 코드가 삽입될 부분
+    }
+    </code>
+    위 코드가 삽입되는 부분으로 들어간다.
+</p>
+<div>
+    <button type="button" id="bt1">버튼1</button>
+    <button type="button" onclick="window.alert(event);">버튼2</button>
+    <button type="button" onclick="bt3Handle(event)">버튼3</button>
+    <button type="button" id="bt4">버튼4</button>
+</div>
+<script>
+    document.getElementById("bt1").onclick=function(evt) {
+        console.log(evt);
+        window.alert('버튼1');
+    };
+
+    function bt3Handle(evt) {
+        console.log(evt);
+        window.alert('버튼3');
+    };
+
+    document.getElementById("bt4").addEventListener("click", function(evt) {
+       console.log(evt);
+       window.alert("버튼4");
+    });
+
+</script>
+</body>
+</html>

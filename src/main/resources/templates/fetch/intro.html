@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+</head>
+<body>
+    <h1>자바스크립트</h1>
+    <p>
+        자바스크립트로 사용자의 경험 개선을 위해 이벤트 처리를 하다보면 백엔드에서 데이터를 받아와야만 이벤트 처리가 가능한 경우가 있다.
+        대표적인 예가 아이디 중복검사를 실시간으로 한다거나, 검색추천어를 실시간으로 받아온다거나.
+    </p>
+    <p>
+        자바스크립트로 서버와 데이터를 주고 받는 작업이 필요할때 사용하는 기법이 AJAX 라는 기술이고,
+        이걸 하기위해서는 XMLHttpRequest 객체를 이용하는 XHR 방식이 있고, fetch 라는 함수를 이용하는 방식이 있다.
+    </p>
+    <select id="subject">
+        <option value="1">HTML and CSS</option>
+        <option value="2">Data Analytics</option>
+        <option value="3">JavaScript</option>
+        <option value="4">Backend</option>
+    </select>
+    <select>
+        <option>select categories</option>
+    </select>
+
+    <script>
+        document.getElementById("subject").onchange=function(evt) {
+            fetch("/fetch/destination",{
+                method : "get"
+            }).then(function(response) {
+                return response.text();
+            }).then(function(result) {
+                console.log(result);
+            });
+        };
+
+
+        /*
+        document.getElementById("subject").onchange=function(evt) {
+           // console.log("onchange");
+            const xhr = new XMLHttpRequest();
+            xhr.open("get", "/fetch/destination", true);
+            xhr.send();
+            console.log("text", xhr.responseText);
+
+
+            xhr.onreadystatechange=function() {
+                if(this.readyState === 4) {
+                    console.log(this.responseText);
+                }
+            }
+
+        }
+    */
+    </script>
+
+
+</body>
+</html>

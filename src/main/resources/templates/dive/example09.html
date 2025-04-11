@@ -13,10 +13,24 @@
     이번에 살펴볼 배열의 함수들은 고차함수라고 부르는 애들이다. 함수를 인자로 전달하거나 함수가 반환되는 함수들
 </p>
 <ul>
-    <li>Arrays.prototype.filter(function(value, index, value){ })</li>
-    <li>Arrays.prototype.sort(function(a, b) {} )</li>
-    <li>Arrays.prototype.forEach(function(value, index, value) {} )</li>
-    <li>Arrays.prototype.map(function(value, index, value) {} )</li>
+    <li>Arrays.prototype.filter(function(value, index, value){ }) :
+        이 function은 true나 false 를 리턴하게 만들면 되는데, true 가 리턴된 요소만 추출해서 새로운 배열이 만들어진
+        </li>
+    <li>Arrays.prototype.every(function(value, index, value){ })
+        이 function은 true, false 를 리턴하게 만들면 되는데, 모든 요소가 true 가 반환됬는지를 확인해줌
+    </li>
+    <li>Arrays.prototype.some(function(value, index, value){ })
+        이 function은 true, false 를 리턴하게 만들면 되는데, 하나라도 true 가 반환됬는지를 확인해줌
+    </li>
+    <li>Arrays.prototype.forEach(function(value, index, value) {} )
+        이 function은 리턴이 필요하진 않고, 배열 요소들 돌면서 해야될 일만 설정하면 됨.
+    </li>
+    <li>Arrays.prototype.map(function(value, index, value) {} ) :
+        이 function은 반환이 필요한데, 각요소들이 리턴시키는 값들로 새로운 배열을 만듬
+    </li>
+    <li>Arrays.prototype.sort(function(a, b) {} ) :
+        이 function은 number를 반환하면 되는데, a 가 b보다 더 먼저 나오길 원하면 음수를 리턴, 나중에 나오길 원하면 양수를 리턴
+    </li>
 </ul>
 <script>
     let datas = [4, 1, -6, 4, -11, -97, -123];
@@ -76,9 +90,8 @@
 
     // persons 배열에 들어가있는 모든 객체에, group 이라는 속성을 추가, (값은 하이미디어 )
     for(let one of persons) {
-        if(!one.group) {
             one.group = '하이미디어';
-        }
+
     }
     console.log(persons);
 

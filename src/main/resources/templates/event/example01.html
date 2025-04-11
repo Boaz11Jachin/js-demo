@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+</head>
+<body style="background-color: black">
+<div id="block"
+     style="width: 70px; height: 30px; background-color: white;
+                        position: absolute; top : 300px; left: 100px;"></div>
+
+<script>
+    const $block = document.getElementById("block");
+    /*
+    document.onmousemove = function(evt) {
+        console.log(evt.x, evt.y);
+        console.log($block.style.top, $block.style.left);
+        $block.style.top = evt.y +'px';
+        $block.style.left = evt.x +'px';
+    }
+     */
+    document.onkeydown = function (evt) {
+        console.log(evt.key, typeof evt.key);
+        console.log($block.style.top, $block.style.top.replace('px', ''));
+        if (evt.key === 'ArrowDown') {
+            $block.style.top = Number.parseInt($block.style.top.replace('px', '')) + 10 + 'px';
+        }
+        if (evt.key === 'ArrowUp') {
+            $block.style.top = Number.parseInt($block.style.top.replace('px', '')) - 10 + 'px';
+        }
+        if (evt.key === 'ArrowLeft') {
+            $block.style.left = Number.parseInt($block.style.left.replace('px', '')) - 10 + 'px';
+        }
+        if (evt.key === 'ArrowRight') {
+            $block.style.left = Number.parseInt($block.style.left.replace('px', '')) + 10 + 'px';
+        }
+    }
+
+    setInterval(function() {
+        $block.style.top = Number.parseInt($block.style.top.replace('px', '')) + 5 + 'px';
+    }, 100);
+</script>
+</body>
+</html>

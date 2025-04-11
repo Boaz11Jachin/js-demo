@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자바스크립트</title>
+</head>
+<body>
+<div style="padding: 10px; background-color: lavender; border-bottom: 1px solid rgba(0,0,0,0.2);
+      display: flex; justify-content: flex-end; gap : 20px" id="menubar">
+    <span style="font-size:2em; cursor: pointer" id="rankIcon">🏆</span>
+    <span style="font-size:2em; cursor: pointer">📧</span>
+</div>
+<!-- 랭킹팝업 -->
+<div style="position: absolute; width:150px; height: 200px; padding : 10px; top: 70px; right: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.4); background-color: white; z-index: 1;
+            display: none;" id="rankPopup"  role="popup" >
+    <ul>
+        <li>최신 랭킹</li>
+        <li>이번주 랭킹</li>
+        <li>명예의 전당</li>
+    </ul>
+</div>
+<script>
+    document.getElementById("menubar").addEventListener("click", function(evt) {
+        console.log("menubar click ...");
+    });
+
+    document.addEventListener("click", function(evt) {
+        console.log("document.. click");
+        document.getElementById("rankPopup").style.display = 'none';
+    });
+
+    document.getElementById("rankIcon").onclick = function (evt) {
+        console.log("rankicon.. click");
+        evt.stopPropagation();
+        document.getElementById("rankPopup").style.display = 'block';
+    };
+
+
+</script>
+</body>
+</html>

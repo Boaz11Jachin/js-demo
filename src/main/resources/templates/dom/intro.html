@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>자바스크립트 이벤트</title>
 </head>
-<body id="wrap" style="color:red">
+<body id="wrap" style="color:red; background-color: lightgray">
   <input type="text" name="chk" placeholder="아이디입력..."/>
   <h1>DOM?(Document Object Model)</h1>
   <div>
@@ -17,7 +17,7 @@
     </p>
   </div>
   <script>
-    console.log(document.title);
+    console.log(document.head.title);
     document.title = 'javascript event';
     console.log(document.body, typeof document.body);
     //document.body.innerHTML = '??';
